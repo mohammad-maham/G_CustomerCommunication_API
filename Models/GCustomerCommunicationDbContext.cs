@@ -49,7 +49,9 @@ public partial class GCustomerCommunicationDbContext : DbContext
 
             entity.ToTable("Notification");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id)
+              .UseIdentityAlwaysColumn()
+              .HasIdentityOptions(null, null, 100000000L, 1000000000000000000L, null, 30L);
             entity.Property(e => e.DestinationAddress).HasMaxLength(100);
             entity.Property(e => e.SenderUnit).HasColumnType("character varying");
         });

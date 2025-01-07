@@ -23,7 +23,7 @@ public partial class Notification
 
     public string SenderUnit { get; set; } = null!;
 
-    public short Status { get; set; }
+    public int Status { get; set; }
 
     public string DestinationAddress { get; set; } = null!;
 }

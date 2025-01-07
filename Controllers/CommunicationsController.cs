@@ -12,6 +12,7 @@ namespace G_CustomerCommunication_API.Controllers
     {
         private readonly ILogger<CommunicationsController> _logger;
         private readonly ICommunication _customerComm;
+
         public CommunicationsController(ILogger<CommunicationsController> logger, ICommunication customerComm)
         {
             _logger = logger;
@@ -22,10 +23,10 @@ namespace G_CustomerCommunication_API.Controllers
         [Route("[action]")]
         public async Task<IActionResult> SendNotification([FromBody] SendNotifVM notifVM)
         {
-            if (notifVM != null && notifVM.SenderUserId != 0)
+            if (notifVM != null && notifVM.SenderUserId != 0 && !string.IsNullOrEmpty(notifVM.Token))
             {
                 bool isSended = await _customerComm.SendNotificationAsync(notifVM);
-                return Ok(new ApiResponse(isSended ? 200 : 400, data: isSended.ToString()));
+                return Ok(new ApiResponse(isSended ? 200 : 400, data: isSended.ToString().ToLower()));
             }
             return BadRequest(new ApiResponse(404));
         }
@@ -34,7 +35,7 @@ namespace G_CustomerCommunication_API.Controllers
         [Route("[action]")]
         public async Task<IActionResult> GetNotifications([FromBody] GetNotifVM notifVM)
         {
-            if (notifVM != null && notifVM.UserId != 0)
+            if (notifVM != null && !string.IsNullOrEmpty(notifVM.Token))
             {
                 List<Notification> notifs = await _customerComm.GetNotificationsAsync(notifVM);
                 if (notifs.Count > 0)

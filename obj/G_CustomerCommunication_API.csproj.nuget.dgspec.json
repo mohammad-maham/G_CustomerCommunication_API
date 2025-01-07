@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Gold Project\\G_CustomerCommunication\\G_CustomerCommunication_API.csproj": {}
+    "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Gold Project\\G_CustomerCommunication\\G_CustomerCommunication_API.csproj": {
+    "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\G_CustomerCommunication_API.csproj",
+        "projectUniqueName": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
         "projectName": "G_CustomerCommunication_API",
-        "projectPath": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\G_CustomerCommunication_API.csproj",
-        "packagesPath": "C:\\Users\\mehrd\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\obj\\",
+        "projectPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
+        "packagesPath": "C:\\Users\\M.Najafalizadeh\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mehrd\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\M.Najafalizadeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,6 +81,10 @@
               "target": "Package",
               "version": "[9.0.2, )"
             },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[112.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -109,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

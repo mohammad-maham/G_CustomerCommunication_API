@@ -23,6 +23,8 @@ namespace G_CustomerCommunication_API
             builder.Services.AddDbContext<GCustomerCommunicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("GCustomerCommunicationDbContext"), options => options.UseNodaTime()));
 
             builder.Services.AddScoped<ICommunication, Communication>();
+            builder.Services.AddScoped<INotificationManager, NotificationManager>();
+            builder.Services.AddScoped<IAccounting, Accounting>();
 
             builder.Services.AddEndpointsApiExplorer();
 

@@ -26,4 +26,6 @@ public partial class Notification
     public int Status { get; set; }
 
     public string DestinationAddress { get; set; } = null!;
+
+    public string? NotificationResult { get; set; }
 }

@@ -2,6 +2,8 @@
 using G_CustomerCommunication_API.Models;
 using G_CustomerCommunication_API.Models.Accounting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.Json;
+using Newtonsoft.Json;
 
 namespace G_CustomerCommunication_API.BusinessLogics
 {
@@ -50,29 +52,33 @@ namespace G_CustomerCommunication_API.BusinessLogics
         {
             bool isOk = false;
             bool isSended = false;
+            string? destinationAddress = string.Empty;
 
             UserInfo? userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
             if (userInfo != null && userInfo.Id > 0)
             {
                 long userId = userInfo.Id;
-
                 try
                 {
                     switch (notifVM.NotifTypes)
                     {
                         case NotifTypes.SMS:
                             isSended = await _notificationManager.SendSMSNotifAsync(notifVM);
+                            destinationAddress = userInfo.Mobile.ToString();
                             break;
                         case NotifTypes.Email:
                             isSended = await _notificationManager.SendEmailNotifAsync(notifVM);
+                            destinationAddress = userInfo.Email?.ToString();
                             break;
                         case NotifTypes.Dashboard:
                         case NotifTypes.Telegram:
                             isSended = true;
+                            destinationAddress = "Dash/Tel";
                             break;
                         default:
                             break;
                     }
+                    string notifRes = JsonConvert.SerializeObject(new { Status = isSended ? 200 : 0, Sended = isSended.ToString().ToLower() });
                     _customerComm.Notifications.Add(new Notification
                     {
                         Body = notifVM.NotifBody,
@@ -80,17 +86,18 @@ namespace G_CustomerCommunication_API.BusinessLogics
                         SenderUnit = notifVM.NotifUnit.ToString(),
                         UserId = userId,
                         SenderUserId = notifVM.SenderUserId!.Value,
-                        DestinationAddress = notifVM.DestinationAddress!,
+                        DestinationAddress = /*notifVM.DestinationAddress!*/destinationAddress!,
                         InsDate = DateTime.Now,
                         NotificationTemplateId = 0,
                         Status = isSended ? 200 : 0,
+                        NotificationResult = notifRes
                     });
                     await _customerComm.SaveChangesAsync();
                     isOk = true;
                 }
-
                 catch (Exception)
                 {
+                    string notifRes = JsonConvert.SerializeObject(new { Status = 500, Sended = isSended.ToString().ToLower() });
                     _customerComm.Notifications.Add(new Notification
                     {
                         Body = notifVM.NotifBody,
@@ -98,10 +105,11 @@ namespace G_CustomerCommunication_API.BusinessLogics
                         SenderUnit = notifVM.NotifUnit.ToString(),
                         UserId = userId,
                         SenderUserId = notifVM.SenderUserId!.Value,
-                        DestinationAddress = notifVM.DestinationAddress!,
+                        DestinationAddress = /*notifVM.DestinationAddress!*/destinationAddress!,
                         InsDate = DateTime.Now,
                         NotificationTemplateId = 0,
                         Status = 500,
+                        NotificationResult = notifRes,
                     });
                     await _customerComm.SaveChangesAsync();
                     isOk = false;

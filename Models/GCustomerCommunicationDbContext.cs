@@ -54,6 +54,7 @@ public partial class GCustomerCommunicationDbContext : DbContext
               .HasIdentityOptions(null, null, 100000000L, 1000000000000000000L, null, 30L);
             entity.Property(e => e.DestinationAddress).HasMaxLength(100);
             entity.Property(e => e.SenderUnit).HasColumnType("character varying");
+            entity.Property(e => e.NotificationResult).HasColumnType("json");
         });
 
         modelBuilder.Entity<NotificationLink>(entity =>

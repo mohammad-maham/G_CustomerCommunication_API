@@ -93,7 +93,7 @@ namespace G_CustomerCommunication_API.BusinessLogics
                     UserInfo? userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
                     if (userInfo != null && userInfo.Mobile != null && userInfo.Mobile > 0)
                     {
-                        string mobile = userInfo.Mobile.ToString()!;
+                        string mobile = $"0{userInfo.Mobile.ToString()!}";
                         SmsIrResult<SendResult> response = await smsIr.BulkSendAsync(lineNumber, notifVM.NotifBody, [mobile], sendDateTime);
 
                         SendResult sendResult = response.Data;

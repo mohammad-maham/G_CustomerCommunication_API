@@ -6,7 +6,6 @@
         public string? NotifBody { get; set; }
         public long? SenderUserId { get; set; }
         public NotifUnits NotifUnit { get; set; }
-        public string? DestinationAddress { get; set; }
         public string? Token { get; set; }
     }
 

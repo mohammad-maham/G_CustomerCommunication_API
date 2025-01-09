@@ -5,5 +5,6 @@ namespace G_CustomerCommunication_API.BusinessLogics.Interfaces
     public interface IAccounting
     {
         Task<UserInfo?> GetUserInfoByTokenAsync(string token);
+        Task<UserInfo?> GetUserInfoByIdAsync(long? userId);
     }
 }

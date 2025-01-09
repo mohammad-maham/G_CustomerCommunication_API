@@ -53,8 +53,13 @@ namespace G_CustomerCommunication_API.BusinessLogics
             bool isOk = false;
             bool isSended = false;
             string? destinationAddress = string.Empty;
+            UserInfo? userInfo = new();
 
-            UserInfo? userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
+            if (!string.IsNullOrEmpty(notifVM.Token))
+                userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
+            else if (notifVM.RecieverUserId != null && notifVM.RecieverUserId > 0)
+                userInfo = await _accounting.GetUserInfoByIdAsync(notifVM.RecieverUserId);
+
             if (userInfo != null && userInfo.Id > 0)
             {
                 long userId = userInfo.Id;
@@ -65,7 +70,7 @@ namespace G_CustomerCommunication_API.BusinessLogics
                         case NotifTypes.SMS:
                         case NotifTypes.OTP:
                             isSended = await _notificationManager.SendSMSNotifAsync(notifVM);
-                            destinationAddress = userInfo.Mobile.ToString();
+                            destinationAddress = userInfo.Mobile;
                             break;
                         case NotifTypes.Email:
                             isSended = await _notificationManager.SendEmailNotifAsync(notifVM);

@@ -40,7 +40,13 @@ namespace G_CustomerCommunication_API.BusinessLogics
             {
                 if (notifVM != null)
                 {
-                    UserInfo? userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
+                    UserInfo? userInfo = new();
+
+                    if (!string.IsNullOrEmpty(notifVM.Token))
+                        userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
+                    else if (notifVM.RecieverUserId != null && notifVM.RecieverUserId > 0)
+                        userInfo = await _accounting.GetUserInfoByIdAsync(notifVM.RecieverUserId);
+
                     if (userInfo != null && !string.IsNullOrEmpty(userInfo.Email))
                     {
                         string recieverMail = userInfo.Email;
@@ -92,8 +98,14 @@ namespace G_CustomerCommunication_API.BusinessLogics
             {
                 if (notifVM != null)
                 {
-                    UserInfo? userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
-                    if (userInfo != null && userInfo.Mobile != null && userInfo.Mobile > 0)
+                    UserInfo? userInfo = new();
+
+                    if (!string.IsNullOrEmpty(notifVM.Token))
+                        userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
+                    else if (notifVM.RecieverUserId != null && notifVM.RecieverUserId > 0)
+                        userInfo = await _accounting.GetUserInfoByIdAsync(notifVM.RecieverUserId);
+
+                    if (userInfo != null && userInfo.Mobile != null && !string.IsNullOrEmpty(userInfo.Mobile))
                     {
                         if (notifVM.NotifTypes == NotifTypes.SMS)
                         {

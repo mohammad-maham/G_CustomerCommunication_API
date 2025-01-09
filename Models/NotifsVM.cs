@@ -7,6 +7,7 @@
         public long? SenderUserId { get; set; }
         public NotifUnits NotifUnit { get; set; }
         public string? Token { get; set; }
+        public long? RecieverUserId { get; set; }
     }
 
     public class GetNotifVM

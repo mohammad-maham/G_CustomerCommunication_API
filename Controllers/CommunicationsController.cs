@@ -23,7 +23,8 @@ namespace G_CustomerCommunication_API.Controllers
         [Route("[action]")]
         public async Task<IActionResult> SendNotification([FromBody] SendNotifVM notifVM)
         {
-            if (notifVM != null && notifVM.SenderUserId != 0 && !string.IsNullOrEmpty(notifVM.Token))
+            if (notifVM != null && notifVM.SenderUserId != 0 && (!string.IsNullOrEmpty(notifVM.Token) 
+                || (notifVM.RecieverUserId != null && notifVM.RecieverUserId > 0)))
             {
                 bool isSended = await _customerComm.SendNotificationAsync(notifVM);
                 return Ok(new ApiResponse(isSended ? 200 : 400, data: isSended.ToString().ToLower()));

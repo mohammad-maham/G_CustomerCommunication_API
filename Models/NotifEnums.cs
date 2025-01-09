@@ -5,7 +5,8 @@
         SMS = 101,
         Email = 102,
         Dashboard = 103,
-        Telegram = 104
+        Telegram = 104,
+        OTP = 105
     }
 
     public enum NotifUnits

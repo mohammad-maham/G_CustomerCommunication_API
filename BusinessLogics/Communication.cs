@@ -63,6 +63,7 @@ namespace G_CustomerCommunication_API.BusinessLogics
                     switch (notifVM.NotifTypes)
                     {
                         case NotifTypes.SMS:
+                        case NotifTypes.OTP:
                             isSended = await _notificationManager.SendSMSNotifAsync(notifVM);
                             destinationAddress = userInfo.Mobile.ToString();
                             break;

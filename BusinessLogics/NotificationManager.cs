@@ -2,6 +2,7 @@
 using G_CustomerCommunication_API.Models;
 using G_CustomerCommunication_API.Models.Accounting;
 using IPE.SmsIrClient;
+using IPE.SmsIrClient.Models.Requests;
 using IPE.SmsIrClient.Models.Results;
 using System.Net;
 using System.Net.Mail;
@@ -84,6 +85,7 @@ namespace G_CustomerCommunication_API.BusinessLogics
             IConfigurationSection? configs = _config.GetSection("SMSOptions");
             string api_key = configs.GetValue<string>("key")!;
             long lineNumber = configs.GetValue<long>("linenumber")!;
+            int templateId = configs.GetValue<int>("templateId");
             SmsIr smsIr = new(api_key);
 
             try
@@ -93,16 +95,30 @@ namespace G_CustomerCommunication_API.BusinessLogics
                     UserInfo? userInfo = await _accounting.GetUserInfoByTokenAsync(notifVM.Token!);
                     if (userInfo != null && userInfo.Mobile != null && userInfo.Mobile > 0)
                     {
-                        string mobile = $"0{userInfo.Mobile.ToString()!}";
-                        SmsIrResult<SendResult> response = await smsIr.BulkSendAsync(lineNumber, notifVM.NotifBody, [mobile], sendDateTime);
+                        if (notifVM.NotifTypes == NotifTypes.SMS)
+                        {
+                            string mobile = $"0{userInfo.Mobile}";
+                            SmsIrResult<SendResult> response = await smsIr.BulkSendAsync(lineNumber, notifVM.NotifBody, [mobile], sendDateTime);
 
-                        SendResult sendResult = response.Data;
-                        Guid packId = sendResult.PackId;
-                        int?[] messageIds = sendResult.MessageIds;
-                        decimal cost = sendResult.Cost;
+                            SendResult sendResult = response.Data;
+                            Guid packId = sendResult.PackId;
+                            int?[] messageIds = sendResult.MessageIds;
+                            decimal cost = sendResult.Cost;
 
-                        _logger.LogInformation($"SMS msgId: {messageIds}");
-                        isOk = messageIds.Length > 0;
+                            _logger.LogInformation($"SMS msgId: {messageIds}");
+                            isOk = messageIds.Length > 0;
+                        }
+                        else if (notifVM.NotifTypes == NotifTypes.OTP)
+                        {
+                            string mobile = $"0{userInfo.Mobile}";
+                            VerifySendParameter[] verifySendParameters = { new("OTP", notifVM.NotifBody) };
+                            SmsIrResult<VerifySendResult> response = smsIr.VerifySend(mobile, templateId, verifySendParameters);
+                            VerifySendResult sendResult = response.Data;
+                            int messageId = sendResult.MessageId;
+                            decimal cost = sendResult.Cost;
+                            _logger.LogInformation($"OTP msgId: {messageId}");
+                            isOk = messageId > 0;
+                        }
                     }
                 }
             }

@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|e:\\projects\\gold\\g_customercommunication_api\\models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|e:\\projects\\gold\\g_customercommunication_api\\controllers\\communicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:controllers\\communicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|e:\\projects\\gold\\g_customercommunication_api\\devcommands.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:devcommands.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,6 +51,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "Models\\Notification.cs",
+              "ToolTip": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\Models\\Notification.cs",
+              "RelativeToolTip": "Models\\Notification.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAowBQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T11:09:48.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DevCommands.txt",
+              "DocumentMoniker": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\DevCommands.txt",
+              "RelativeDocumentMoniker": "DevCommands.txt",
+              "ToolTip": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\DevCommands.txt",
+              "RelativeToolTip": "DevCommands.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-01-20T11:06:23.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommunicationsController.cs",
+              "DocumentMoniker": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\Controllers\\CommunicationsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CommunicationsController.cs",
+              "ToolTip": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\Controllers\\CommunicationsController.cs",
+              "RelativeToolTip": "Controllers\\CommunicationsController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowDQAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T11:05:10.182Z",
+              "EditorCaption": ""
             }
           ]
         }

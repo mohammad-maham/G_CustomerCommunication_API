@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NodaTime;
 
 namespace G_CustomerCommunication_API.Models;
 
@@ -13,5 +14,5 @@ public partial class Survey
 
     public string QuestionValues { get; set; } = null!;
 
-    public TimeOnly RegDate { get; set; }
+    public DateTime RegDate { get; set; }
 }

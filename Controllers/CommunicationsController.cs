@@ -47,5 +47,16 @@ namespace G_CustomerCommunication_API.Controllers
             }
             return BadRequest(new ApiResponse(404));
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> GetSurvey([FromBody] SurveyTemplate surveyTemplate)
+        {
+            if(surveyTemplate!=null && surveyTemplate.Station > 0)
+            {
+
+            }
+            return BadRequest(new ApiResponse(404));
+        }
     }
 }

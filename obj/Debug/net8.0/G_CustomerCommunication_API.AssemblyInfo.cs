@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("G_CustomerCommunication_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8da5f305535e456779e39faa3525c247fbb4cf8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0e3e2274ca6ab8ca593d12927336cdf583f9b8f")]
 [assembly: System.Reflection.AssemblyProductAttribute("G_CustomerCommunication_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("G_CustomerCommunication_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

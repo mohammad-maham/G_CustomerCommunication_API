@@ -11,7 +11,7 @@ public partial class SurveyTemplate
 
     public short Status { get; set; }
 
-    public short NotificationLinkId { get; set; }
+    public int NotificationLinkId { get; set; }
 
-    public short? Station { get; set; }
+    public int? Station { get; set; }
 }

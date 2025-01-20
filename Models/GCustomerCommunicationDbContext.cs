@@ -23,6 +23,8 @@ public partial class GCustomerCommunicationDbContext : DbContext
 
     public virtual DbSet<NotificationType> NotificationTypes { get; set; }
 
+    public virtual DbSet<Station> Stations { get; set; }
+
     public virtual DbSet<Status> Statuses { get; set; }
 
     public virtual DbSet<Survey> Surveys { get; set; }
@@ -32,6 +34,7 @@ public partial class GCustomerCommunicationDbContext : DbContext
     public virtual DbSet<SurveyTemplateQuestion> SurveyTemplateQuestions { get; set; }
 
     public virtual DbSet<ValueType> ValueTypes { get; set; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -50,11 +53,11 @@ public partial class GCustomerCommunicationDbContext : DbContext
             entity.ToTable("Notification");
 
             entity.Property(e => e.Id)
-              .UseIdentityAlwaysColumn()
-              .HasIdentityOptions(null, null, 100000000L, 1000000000000000000L, null, 30L);
+                .UseIdentityAlwaysColumn()
+                .HasIdentityOptions(null, null, 100000000L, 1000000000000000000L, null, 30L);
             entity.Property(e => e.DestinationAddress).HasMaxLength(100);
-            entity.Property(e => e.SenderUnit).HasColumnType("character varying");
             entity.Property(e => e.NotificationResult).HasColumnType("json");
+            entity.Property(e => e.SenderUnit).HasColumnType("character varying");
         });
 
         modelBuilder.Entity<NotificationLink>(entity =>
@@ -78,6 +81,17 @@ public partial class GCustomerCommunicationDbContext : DbContext
             entity.Property(e => e.Name).HasColumnType("character varying");
         });
 
+        modelBuilder.Entity<Station>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Station_pkey");
+
+            entity.ToTable("Station");
+
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Caption).HasMaxLength(200);
+            entity.Property(e => e.Status).HasDefaultValue((short)0);
+        });
+
         modelBuilder.Entity<Status>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("Status_pkey");
@@ -97,6 +111,7 @@ public partial class GCustomerCommunicationDbContext : DbContext
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.QuestionValues).HasColumnType("json");
+            entity.Property(e => e.RegDate).HasColumnType("time without time zone");
         });
 
         modelBuilder.Entity<SurveyTemplate>(entity =>

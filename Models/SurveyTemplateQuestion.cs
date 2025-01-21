@@ -13,7 +13,7 @@ public partial class SurveyTemplateQuestion
 
     public string Question { get; set; } = null!;
 
-    public short ValueType { get; set; }
+    public int ValueType { get; set; }
 
     public List<string>? Values { get; set; }
 }

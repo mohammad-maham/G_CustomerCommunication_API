@@ -6,6 +6,7 @@ namespace G_CustomerCommunication_API.BusinessLogics.Interfaces
     {
         Task<bool> SendNotificationAsync(SendNotifVM notifVM);
         Task<List<Notification>> GetNotificationsAsync(GetNotifVM notifVM);
-        Task<>
+        Task<List<SurveyQuestionsVM>?> GetSurveyQuestionsAsync(SurveyFiltersVM surveyFilters);
+        Task<bool> RegisterUserSurveyAsync(SurveyAnswersVM surveyAnswers);
     }
 }

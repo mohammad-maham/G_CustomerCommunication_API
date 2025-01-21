@@ -109,9 +109,9 @@ public partial class GCustomerCommunicationDbContext : DbContext
 
             entity.ToTable("Survey");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).UseIdentityAlwaysColumn()
+                .HasIdentityOptions(null, null, 1000000000L, 1000000000000000000L, null, 30L);
             entity.Property(e => e.QuestionValues).HasColumnType("json");
-            entity.Property(e => e.RegDate).HasColumnType("time without time zone");
         });
 
         modelBuilder.Entity<SurveyTemplate>(entity =>

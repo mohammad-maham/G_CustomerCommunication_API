@@ -23,7 +23,7 @@ namespace G_CustomerCommunication_API.Controllers
         [Route("[action]")]
         public async Task<IActionResult> SendNotification([FromBody] SendNotifVM notifVM)
         {
-            if (notifVM != null && notifVM.SenderUserId != 0 && (!string.IsNullOrEmpty(notifVM.Token) 
+            if (notifVM != null && notifVM.SenderUserId != 0 && (!string.IsNullOrEmpty(notifVM.Token)
                 || (notifVM.RecieverUserId != null && notifVM.RecieverUserId > 0)))
             {
                 bool isSended = await _customerComm.SendNotificationAsync(notifVM);
@@ -50,11 +50,31 @@ namespace G_CustomerCommunication_API.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> GetSurvey([FromBody] SurveyTemplate surveyTemplate)
+        public async Task<IActionResult> GetSurveyQuestions([FromBody] SurveyFiltersVM surveyTemplate)
         {
-            if(surveyTemplate!=null && surveyTemplate.Station > 0)
+            if (surveyTemplate != null && surveyTemplate.StationId > 0 && surveyTemplate.NotificationLinkId > 0)
             {
+                List<SurveyQuestionsVM>? questions = await _customerComm.GetSurveyQuestionsAsync(surveyTemplate);
+                if (questions != null && questions.Count > 0)
+                {
+                    string jsonData = JsonConvert.SerializeObject(questions);
+                    return Ok(new ApiResponse(data: jsonData));
+                }
+            }
+            return BadRequest(new ApiResponse(404));
+        }
 
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> SubmitUserSurvey([FromBody] SurveyAnswersVM surveyTemplate)
+        {
+            if (surveyTemplate != null &&
+                surveyTemplate.UserId > 0 &&
+                surveyTemplate.SurveyTemplateId > 0 &&
+                !string.IsNullOrEmpty(surveyTemplate.Answers))
+            {
+                bool isRegistered = await _customerComm.RegisterUserSurveyAsync(surveyTemplate);
+                return Ok(new ApiResponse(isRegistered ? 200 : 400));
             }
             return BadRequest(new ApiResponse(404));
         }

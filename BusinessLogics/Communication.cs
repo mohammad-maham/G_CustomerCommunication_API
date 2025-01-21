@@ -2,7 +2,6 @@
 using G_CustomerCommunication_API.Models;
 using G_CustomerCommunication_API.Models.Accounting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.Json;
 using Newtonsoft.Json;
 
 namespace G_CustomerCommunication_API.BusinessLogics
@@ -46,6 +45,59 @@ namespace G_CustomerCommunication_API.BusinessLogics
             }
 
             return await notifs.ToListAsync();
+        }
+
+        public async Task<List<SurveyQuestionsVM>?> GetSurveyQuestionsAsync(SurveyFiltersVM surveyFilters)
+        {
+            List<SurveyQuestionsVM>? questions = await _customerComm
+                .SurveyTemplates
+                .SelectMany(st => _customerComm
+                .SurveyTemplateQuestions
+                .Where(x => x.SurveyTemplateId == st.Id)
+                /*.DefaultIfEmpty()*/, (st, stq) => new { st, stq })
+                .Where(x => x.st.Station == surveyFilters.StationId && x.st.NotificationLinkId == surveyFilters.NotificationLinkId)
+                .Select(x => new SurveyQuestionsVM()
+                {
+                    AnswerType = x.stq.ValueType,
+                    Question = x.stq.Question,
+                    SurveyTemplateId = x.stq.SurveyTemplateId,
+                })
+                .ToListAsync();
+
+            return questions;
+        }
+
+        public async Task<bool> RegisterUserSurveyAsync(SurveyAnswersVM surveyAnswers)
+        {
+            bool isOk = false;
+            try
+            {
+                bool isValid = surveyAnswers != null &&
+                    surveyAnswers.SurveyTemplateId != null &&
+                    surveyAnswers.UserId != null &&
+                    surveyAnswers.UserId > 0 &&
+                    surveyAnswers.SurveyTemplateId > 0 &&
+                    !string.IsNullOrEmpty(surveyAnswers.Answers);
+
+                if (isValid)
+                {
+                    Survey survey = new Survey()
+                    {
+                        QuestionValues = surveyAnswers!.Answers!,
+                        RegDate = DateTime.Now,
+                        SurveyTemplateId = surveyAnswers.SurveyTemplateId!.Value,
+                        UserId = surveyAnswers.UserId!.Value
+                    };
+                    await _customerComm.Surveys.AddAsync(survey);
+                    await _customerComm.SaveChangesAsync();
+                    isOk = true;
+                }
+            }
+            catch (Exception)
+            {
+                isOk = false;
+            }
+            return isOk;
         }
 
         public async Task<bool> SendNotificationAsync(SendNotifVM notifVM)

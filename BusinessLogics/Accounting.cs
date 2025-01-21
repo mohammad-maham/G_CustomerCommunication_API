@@ -27,7 +27,7 @@ namespace G_CustomerCommunication_API.BusinessLogics
             try
             {
                 // BaseURL
-                RestClient client = new($"{host}/api/User/GetUserInfo");
+                RestClient client = new($"{host}/api/User/GetUserInfoById");
                 RestRequest request = new()
                 {
                     Method = Method.Post

@@ -3609,19 +3609,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\M.Najafalizadeh\\.nuget\\packages\\": {}
+    "C:\\Users\\mehrd\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
+      "projectUniqueName": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\G_CustomerCommunication_API.csproj",
       "projectName": "G_CustomerCommunication_API",
-      "projectPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
-      "packagesPath": "C:\\Users\\M.Najafalizadeh\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\obj\\",
+      "projectPath": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\G_CustomerCommunication_API.csproj",
+      "packagesPath": "C:\\Users\\mehrd\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\M.Najafalizadeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mehrd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3716,7 +3721,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

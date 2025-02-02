@@ -1,6 +1,6 @@
 ﻿using G_CustomerCommunication_API.BusinessLogics.Interfaces;
 using G_CustomerCommunication_API.Models;
-using G_CustomerCommunication_API.Models.MiddlewareVM;
+using GoldHelpers.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -27,9 +27,9 @@ namespace G_CustomerCommunication_API.Controllers
                 || (notifVM.RecieverUserId != null && notifVM.RecieverUserId > 0)))
             {
                 bool isSended = await _customerComm.SendNotificationAsync(notifVM);
-                return Ok(new ApiResponse(isSended ? 200 : 400, data: isSended.ToString().ToLower()));
+                return Ok(new GoldAPIResult(isSended ? 200 : 400, data: isSended.ToString().ToLower()));
             }
-            return BadRequest(new ApiResponse(404));
+            return BadRequest(new GoldAPIResult(404));
         }
 
         [HttpPost]
@@ -42,10 +42,10 @@ namespace G_CustomerCommunication_API.Controllers
                 if (notifs.Count > 0)
                 {
                     string jsonData = JsonConvert.SerializeObject(notifs);
-                    return Ok(new ApiResponse(200, data: jsonData));
+                    return Ok(new GoldAPIResult(200, data: jsonData));
                 }
             }
-            return BadRequest(new ApiResponse(404));
+            return BadRequest(new GoldAPIResult(404));
         }
 
         [HttpPost]
@@ -58,10 +58,10 @@ namespace G_CustomerCommunication_API.Controllers
                 if (questions != null && questions.Count > 0)
                 {
                     string jsonData = JsonConvert.SerializeObject(questions);
-                    return Ok(new ApiResponse(data: jsonData));
+                    return Ok(new GoldAPIResult(data: jsonData));
                 }
             }
-            return BadRequest(new ApiResponse(404));
+            return BadRequest(new GoldAPIResult(404));
         }
 
         [HttpPost]
@@ -74,9 +74,9 @@ namespace G_CustomerCommunication_API.Controllers
                 !string.IsNullOrEmpty(surveyTemplate.Answers))
             {
                 bool isRegistered = await _customerComm.RegisterUserSurveyAsync(surveyTemplate);
-                return Ok(new ApiResponse(isRegistered ? 200 : 400));
+                return Ok(new GoldAPIResult(isRegistered ? 200 : 400));
             }
-            return BadRequest(new ApiResponse(404));
+            return BadRequest(new GoldAPIResult(404));
         }
     }
 }

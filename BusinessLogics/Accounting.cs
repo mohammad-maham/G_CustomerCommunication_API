@@ -1,10 +1,8 @@
 ﻿using G_CustomerCommunication_API.BusinessLogics.Interfaces;
 using G_CustomerCommunication_API.Models.Accounting;
-using G_CustomerCommunication_API.Models.MiddlewareVM;
+using GoldHelpers.Helpers;
+using GoldHelpers.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using System.Net;
 
 namespace G_CustomerCommunication_API.BusinessLogics
 {
@@ -22,32 +20,13 @@ namespace G_CustomerCommunication_API.BusinessLogics
         public async Task<UserInfo?> GetUserInfoByIdAsync(long? userId)
         {
             UserInfo? info = new();
-            string host = _config.GetRequiredSection("MicroservicesUrl").GetValue<string>("Accounting")!;
 
             try
             {
-                // BaseURL
-                RestClient client = new($"{host}/api/User/GetUserInfoById");
-                RestRequest request = new()
-                {
-                    Method = Method.Post
-                };
+                GoldAPIResult? result = await new GoldAPIResponse(GoldHosts.Accounting, "/api/User/GetUserInfoById", new { id = userId }).PostAsync();
 
-                // Parameters
-                request.AddJsonBody(new { id = userId });
-
-                // Headers
-                request.AddHeader("content-type", "application/json");
-                request.AddHeader("cache-control", "no-cache");
-
-                RestResponse response = await client.ExecutePostAsync(request);
-
-                if (response.StatusCode == HttpStatusCode.OK && !string.IsNullOrEmpty(response.Content))
-                {
-                    ApiResponse? result = JsonConvert.DeserializeObject<ApiResponse?>(response.Content);
-                    if (result != null && !string.IsNullOrEmpty(result.Data))
-                        info = JsonConvert.DeserializeObject<UserInfo?>(result.Data);
-                }
+                if (result != null && !string.IsNullOrEmpty(result.Data))
+                    info = JsonConvert.DeserializeObject<UserInfo?>(result.Data);
             }
             catch (Exception)
             {
@@ -60,32 +39,13 @@ namespace G_CustomerCommunication_API.BusinessLogics
         public async Task<UserInfo?> GetUserInfoByTokenAsync(string token)
         {
             UserInfo? info = new();
-            string host = _config.GetRequiredSection("MicroservicesUrl").GetValue<string>("Accounting")!;
 
             try
             {
-                // BaseURL
-                RestClient client = new($"{host}/api/Attributes/GetUserInfo");
-                RestRequest request = new()
-                {
-                    Method = Method.Post
-                };
+                GoldAPIResult? result = await new GoldAPIResponse(GoldHosts.Accounting, "/api/Attributes/GetUserInfo", new { Token = token }).PostAsync();
 
-                // Parameters
-                request.AddJsonBody(new { Token = token });
-
-                // Headers
-                request.AddHeader("content-type", "application/json");
-                request.AddHeader("cache-control", "no-cache");
-
-                RestResponse response = await client.ExecutePostAsync(request);
-
-                if (response.StatusCode == HttpStatusCode.OK && !string.IsNullOrEmpty(response.Content))
-                {
-                    ApiResponse? result = JsonConvert.DeserializeObject<ApiResponse?>(response.Content);
-                    if (result != null && !string.IsNullOrEmpty(result.Data))
-                        info = JsonConvert.DeserializeObject<UserInfo?>(result.Data);
-                }
+                if (result != null && !string.IsNullOrEmpty(result.Data))
+                    info = JsonConvert.DeserializeObject<UserInfo?>(result.Data);
             }
             catch (Exception)
             {

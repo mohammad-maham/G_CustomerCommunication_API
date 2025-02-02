@@ -1,28 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|d:\\projects\\gold project\\g_customercommunication\\models\\gcustomercommunicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:models\\gcustomercommunicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|d:\\projects\\gold project\\g_customercommunication\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|d:\\projects\\gold project\\g_customercommunication\\businesslogics\\communication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:businesslogics\\communication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|d:\\projects\\gold project\\g_customercommunication\\businesslogics\\accounting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:businesslogics\\accounting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|d:\\projects\\gold project\\g_customercommunication\\controllers\\communicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA916298-C1A9-4F3C-B4E8-9E52A53061D0}|G_CustomerCommunication_API.csproj|solutionrelative:controllers\\communicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,32 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -66,72 +21,23 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GCustomerCommunicationDbContext.cs",
-              "DocumentMoniker": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\Models\\GCustomerCommunicationDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\GCustomerCommunicationDbContext.cs",
-              "ToolTip": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\Models\\GCustomerCommunicationDbContext.cs",
-              "RelativeToolTip": "Models\\GCustomerCommunicationDbContext.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAADwvz0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T17:17:18.684Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Accounting.cs",
-              "DocumentMoniker": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\BusinessLogics\\Accounting.cs",
-              "RelativeDocumentMoniker": "BusinessLogics\\Accounting.cs",
-              "ToolTip": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\BusinessLogics\\Accounting.cs",
-              "RelativeToolTip": "BusinessLogics\\Accounting.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAADwvxsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T16:40:33.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Communication.cs",
-              "DocumentMoniker": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\BusinessLogics\\Communication.cs",
-              "RelativeDocumentMoniker": "BusinessLogics\\Communication.cs",
-              "ToolTip": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\BusinessLogics\\Communication.cs",
-              "RelativeToolTip": "BusinessLogics\\Communication.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAtwHsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T16:35:06.608Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-21T16:30:57.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CommunicationsController.cs",
-              "DocumentMoniker": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\Controllers\\CommunicationsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CommunicationsController.cs",
-              "ToolTip": "D:\\Projects\\Gold Project\\G_CustomerCommunication\\Controllers\\CommunicationsController.cs",
-              "RelativeToolTip": "Controllers\\CommunicationsController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBwAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T16:21:24.134Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
             }
           ]
         }

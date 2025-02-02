@@ -1,8 +1,8 @@
 
 using G_CustomerCommunication_API.BusinessLogics;
 using G_CustomerCommunication_API.BusinessLogics.Interfaces;
-using G_CustomerCommunication_API.Middleware;
 using G_CustomerCommunication_API.Models;
+using GoldHelpers.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;

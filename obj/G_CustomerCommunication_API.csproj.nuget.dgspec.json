@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj": {}
+    "E:\\Projects\\Talavest\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj": {
+    "E:\\Projects\\Talavest\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
+        "projectUniqueName": "E:\\Projects\\Talavest\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
         "projectName": "G_CustomerCommunication_API",
-        "projectPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
+        "projectPath": "E:\\Projects\\Talavest\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
         "packagesPath": "C:\\Users\\M.Najafalizadeh\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\obj\\",
+        "outputPath": "E:\\Projects\\Talavest\\G_CustomerCommunication_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\M.Najafalizadeh\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kpYsAU1ixl8=",
+  "dgSpecHash": "lj8ou1gwaaw=",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Gold\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
+  "projectFilePath": "E:\\Projects\\Talavest\\G_CustomerCommunication_API\\G_CustomerCommunication_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\M.Najafalizadeh\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\M.Najafalizadeh\\.nuget\\packages\\ipe.smsir\\1.2.7\\ipe.smsir.1.2.7.nupkg.sha512",

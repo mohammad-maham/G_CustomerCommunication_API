@@ -1,5 +1,6 @@
 ﻿using G_CustomerCommunication_API.BusinessLogics.Interfaces;
 using G_CustomerCommunication_API.Models;
+using GoldHelpers.Helpers;
 using GoldHelpers.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -20,6 +21,7 @@ namespace G_CustomerCommunication_API.Controllers
         }
 
         [HttpPost]
+        [GoldAuthorize]
         [Route("[action]")]
         public async Task<IActionResult> SendNotification([FromBody] SendNotifVM notifVM)
         {
@@ -33,6 +35,7 @@ namespace G_CustomerCommunication_API.Controllers
         }
 
         [HttpPost]
+        [GoldAuthorize]
         [Route("[action]")]
         public async Task<IActionResult> GetNotifications([FromBody] GetNotifVM notifVM)
         {
@@ -49,6 +52,7 @@ namespace G_CustomerCommunication_API.Controllers
         }
 
         [HttpPost]
+        [GoldAuthorize]
         [Route("[action]")]
         public async Task<IActionResult> GetSurveyQuestions([FromBody] SurveyFiltersVM surveyTemplate)
         {
@@ -65,6 +69,7 @@ namespace G_CustomerCommunication_API.Controllers
         }
 
         [HttpPost]
+        [GoldAuthorize]
         [Route("[action]")]
         public async Task<IActionResult> SubmitUserSurvey([FromBody] SurveyAnswersVM surveyTemplate)
         {
